@@ -93,3 +93,26 @@ void rotr(stack_t **stack, __attribute__((unused))unsigned int line_num)
 	(*stack)->prev = tmp;
 	(*stack) = tmp;
 }
+
+/**
+ * mod_nodes - modulus of the first two nodes of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_num: the line number of of the opcode.
+ */
+void mod_nodes(stack_t **stack, unsigned int line_num)
+{
+	int result;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+
+		more_err(8, line_num, "mod");
+
+
+	if ((*stack)->n == 0)
+		more_err(9, line_num);
+	(*stack) = (*stack)->next;
+	result = (*stack)->n % (*stack)->prev->n;
+	(*stack)->n = result;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
