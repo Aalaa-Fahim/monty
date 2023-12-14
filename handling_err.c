@@ -16,7 +16,7 @@ void print_err(int err_code, ...)
 {
 	va_list arg;
 	char *op;
-	int l_num;
+	int line_num;
 
 	va_start(arg, err_code);
 	switch (err_code)
@@ -29,9 +29,9 @@ void print_err(int err_code, ...)
 				va_arg(arg, char *));
 			break;
 		case 3:
-			l_num = va_arg(arg, int);
+			line_num = va_arg(arg, int);
 			op = va_arg(arg, char *);
-			fprintf(stderr, "L%d: unknown instruction %s\n", l_num, op);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, op);
 			break;
 		case 4:
 			fprintf(stderr, "Error: malloc failed\n");
@@ -48,7 +48,7 @@ void print_err(int err_code, ...)
 
 /**
  * more_err - handle the rest of errors.
- * @error_code: The error codes are the following:
+ * @err_code: The error codes are the following:
  * (6) => When the stack it empty for pint.
  * (7) => When the stack it empty for pop.
  * (8) => When stack is too short for operation.
@@ -58,7 +58,7 @@ void more_err(int err_code, ...)
 {
 	va_list arg;
 	char *op;
-	int l_num;
+	int line_num;
 
 	va_start(arg, err_code);
 	switch (err_code)
@@ -72,9 +72,9 @@ void more_err(int err_code, ...)
 				va_arg(arg, int));
 			break;
 		case 8:
-			l_num = va_arg(arg, unsigned int);
+			line_num = va_arg(arg, unsigned int);
 			op = va_arg(arg, char *);
-			fprintf(stderr, "L%d: can't %s, stack too short\n", l_num, op);
+			fprintf(stderr, "L%d: can't %s, stack too short\n", line_num, op);
 			break;
 		case 9:
 			fprintf(stderr, "L%d: division by zero\n",
@@ -96,17 +96,17 @@ void more_err(int err_code, ...)
 void string_err(int err_code, ...)
 {
 	va_list arg;
-	int l_num;
+	int line_num;
 
 	va_start(arg, err_code);
-	l_num = va_arg(arg, int);
+	line_num = va_arg(arg, int);
 	switch (err_code)
 	{
 		case 10:
-			fprintf(stderr, "L%d: can't pchar, value out of range\n", l_num);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
 			break;
 		case 11:
-			fprintf(stderr, "L%d: can't pchar, stack empty\n", l_num);
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
 			break;
 		default:
 			break;
