@@ -76,7 +76,7 @@ void find_func(char *opcode, char *value, int line_num, int format)
 	instruction_t func_list[] = {
 		{"push", add_to},
 		{"pall", print_stack},
-		{"pint", print_top},
+		{"pint", print_at_top},
 		{"pop", pop_top},
 		{"nop", nop},
 		{"swap", swap_nodes},
@@ -85,7 +85,7 @@ void find_func(char *opcode, char *value, int line_num, int format)
 		{"div", div_nodes},
 		{"mul", mul_nodes},
 		{"mod", mod_nodes},
-		{"pchar", print_asc},
+		{"pchar", print_char},
 		{"pstr", print_str},
 		{"rotl", rotl},
 		{"rotr", rotr},

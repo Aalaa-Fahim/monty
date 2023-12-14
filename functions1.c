@@ -44,7 +44,7 @@ void print_stack(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * pop_top - Deletes a node of the stack.
+ * pop_top - Deletes the top element of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_num: the line number of of the opcode.
  */
@@ -63,11 +63,11 @@ void pop_top(stack_t **stack, unsigned int line_num)
 }
 
 /**
- * print_top - Prints the top node of the stack.
+ * print_at_top - Prints the top node of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_num: the line number of of the opcode.
  */
-void print_top(stack_t **stack, unsigned int line_num)
+void print_at_top(stack_t **stack, unsigned int line_num)
 {
 	if (stack == NULL || *stack == NULL)
 		more_err(6, line_num);
