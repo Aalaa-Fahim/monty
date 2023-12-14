@@ -74,7 +74,7 @@ void find_func(char *opcode, char *value, int line_num, int format)
 	int i, op;
 
 	instruction_t func_list[] = {
-		{"push", add_to},
+		{"push", add_to_s},
 		{"pall", print_stack},
 		{"pint", print_at_top},
 		{"pop", pop_top},
@@ -118,9 +118,8 @@ void find_func(char *opcode, char *value, int line_num, int format)
 void call_func(op_func func, char *op, char *val, int line_num, int format)
 {
 	stack_t *node;
-	int flag, i;
+	int flag = 1, i;
 
-	flag = 1;
 	if (strcmp(op, "push") == 0)
 	{
 		if (val != NULL && val[0] == '-')
@@ -139,7 +138,7 @@ void call_func(op_func func, char *op, char *val, int line_num, int format)
 		if (format == 0)
 			func(&node, line_num);
 		if (format == 1)
-			add_to_queue(&node, line_num);
+			add_to_q(&node, line_num);
 	}
 	else
 		func(&head, line_num);
