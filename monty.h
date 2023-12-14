@@ -36,7 +36,7 @@ struct stack_s *next;
 typedef struct instruction_s
 {
 char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number);
+void (*f)(stack_t **stack, unsigned int line_num);
 } instruction_t;
 
 extern stack_t *head;

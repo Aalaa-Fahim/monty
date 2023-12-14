@@ -3,9 +3,9 @@
 /**
  * add_to_s - Adds a node to the stack.
  * @new_node: Pointer to the new node.
- * @n: the line number of of the opcode.
+ * @line_num: the line number of of the opcode.
  */
-void add_to_s(stack_t **new_node, __attribute__((unused))unsigned int n)
+void add_to_s(stack_t **new_node, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *tmp;
 
